@@ -239,13 +239,7 @@ public:
 	 */
 	Iterator InsertAfter(ConstIterator pos, const Type& value) {
 		
-		if (pos == before_begin()) {
-			PushFront(value);
-			return Iterator({ head_.next_node });
-		}
-		else {
-			pos.node_->next_node = new Node(value, pos.node_->next_node);
-		}
+		pos.node_->next_node = new Node(value, pos.node_->next_node);
 		++size_;
 		return Iterator({ pos.node_->next_node });
 	}
